@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>One Minute Poll</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>One Minute Poll</h1>
+  <section id="current-poll">
+    <h2 id="question"></h2>
+    <form id="vote-form"></form>
+    <button id="show-results" type="button">Show Results</button>
+    <pre id="results"></pre>
+    <button id="reset-poll" type="button">Reset Poll</button>
+  </section>
+  <section id="create-poll">
+    <h2>Create Poll</h2>
+    <form id="create-form">
+      <input type="text" id="new-question" placeholder="Question" required>
+      <input type="text" class="option" placeholder="Option 1" required>
+      <input type="text" class="option" placeholder="Option 2" required>
+      <button type="button" id="add-option">Add Option</button>
+      <button type="submit">Create</button>
+    </form>
+  </section>
+  <section id="ai-suggest">
+    <h2>AI Suggest</h2>
+    <form id="ai-form">
+      <input type="text" id="topic" placeholder="Topic" required>
+      <button type="submit">Suggest</button>
+    </form>
+    <p id="ai-question"></p>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
