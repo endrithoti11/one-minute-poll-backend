@@ -32,4 +32,10 @@ describe('Poll API', () => {
     const results = await request(app).get('/poll/results');
     expect(results.body).toEqual({ A: 0, B: 0 });
   });
+
+  it('handles /api/ask', async () => {
+    const res = await request(app).post('/api/ask').send({ prompt: 'pershendetje' });
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toHaveProperty('reply');
+  });
 });
