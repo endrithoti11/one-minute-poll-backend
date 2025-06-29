@@ -51,4 +51,5 @@ async function askGemini() {
     sendBtn.disabled = false;
   }
 }
+
 sendBtn.addEventListener('click', askGemini);
