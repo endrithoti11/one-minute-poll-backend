@@ -59,7 +59,13 @@ Provide `OPENAI_API_KEY` to enable the AI-powered suggestion endpoint.
 
 ## ShqipGPT Frontend
 
+
 The `shqipgpt` folder contains a small frontend chatbot.
 Set the `GEMINI_API_KEY` environment variable for the server.
 The frontend sends user prompts to `/api/ask`, which in turn calls the Gemini API
 and returns the reply.
+
+The `shqipgpt` folder contains a small frontend that connects to Google Gemini.
+Set the `GEMINI_API_KEY` environment variable and inject it into `index.html`
+by replacing the empty `gemini-api-key` meta tag.
+
