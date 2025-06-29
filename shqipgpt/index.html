@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShqipGPT – Asistenti Yt</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- API key will be injected via environment variable -->
+  <meta name="gemini-api-key" content="">
+
 </head>
 <body>
   <div class="container">
     <h1>ShqipGPT – Asistenti Yt</h1>
     <textarea id="user-input" placeholder="Shkruaj pyetjen këtu..." rows="4"></textarea>
-    <button id="send-btn">Dërgo</button>
+    <button id="send-btn" onclick="handleSubmit()">Dërgo</button>
+
     <div id="response"></div>
   </div>
   <script src="script.js"></script>
