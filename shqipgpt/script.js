@@ -1,4 +1,8 @@
 const responseDiv = document.getElementById('response');
+const input = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+
+async function handleSubmit() {
 const sendBtn = document.getElementById('send-btn');
 const input = document.getElementById('user-input');
 
@@ -11,6 +15,18 @@ async function askGemini() {
   sendBtn.disabled = true;
   responseDiv.textContent = 'Duke u përgjigjur...';
   try {
+    const res = await fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: text })
+    });
+    if (!res.ok) {
+      throw new Error('Kërkesa dështoi');
+    }
+    const data = await res.json();
+    responseDiv.textContent = data.reply || 'Nuk u mor përgjigje.';
+  } catch (err) {
+    responseDiv.textContent = `Ndodhi një gabim: ${err.message}`;
     const res = await fetch(`${ENDPOINT}?key=${API_KEY}`, {
 
     const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBIFBgkikl9y7L5V9SvcpuxYPuUKLl1hVI', {
@@ -35,5 +51,4 @@ async function askGemini() {
     sendBtn.disabled = false;
   }
 }
-
 sendBtn.addEventListener('click', askGemini);
