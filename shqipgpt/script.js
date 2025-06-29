@@ -12,6 +12,7 @@ async function askGemini() {
   responseDiv.textContent = 'Duke u përgjigjur...';
   try {
     const res = await fetch(`${ENDPOINT}?key=${API_KEY}`, {
+    const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBIFBgkikl9y7L5V9SvcpuxYPuUKLl1hVI', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -26,6 +27,9 @@ async function askGemini() {
     responseDiv.textContent = answer;
   } catch (err) {
     responseDiv.textContent = `Ndodhi një gabim: ${err.message}`;
+
+    responseDiv.textContent = 'Ndodhi një gabim.';
+
     console.error(err);
   } finally {
     sendBtn.disabled = false;
