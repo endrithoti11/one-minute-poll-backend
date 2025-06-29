@@ -4,8 +4,10 @@ const OpenAI = require('openai');
 const app = express();
 const openaiKey = process.env.OPENAI_API_KEY;
 const openai = openaiKey ? new OpenAI({ apiKey: openaiKey }) : null;
+const askRouter = require('./api/ask');
 app.use(cors());
 app.use(express.json());
+app.use('/api/ask', askRouter);
 
 let poll = {
   question: 'Is this poll helpful?',
